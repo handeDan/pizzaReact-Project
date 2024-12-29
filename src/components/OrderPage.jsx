@@ -5,38 +5,60 @@ import OrderSelection from "./OrderSelection";
 import Checkbox from "./Checkbox";
 
 function OrderPage({ onSubmit }) {
-  const [orderData, setOrderData] = useState({});
+  //state'ler:
+  const [orderData, setOrderData] = useState({}); //orderData(initial:{})
   const [orderQuantity, setOrderQuantity] = useState(1);
-  const [selectedMaterial, setSelectedMaterial] = useState([]);
-  const [errorMaterial, setErrorMaterial] = useState("");
-  const [errorName, setErrorName] = useState("");
-  const [errorSubmit, setErrorSubmit] = useState("");
+  const [selectedMaterials, setSelectedMaterials] = useState([]);
+  const [errorMaterial, setErrorMaterial] = useState(false);
+  const [errorName, setErrorName] = useState(true);
+  const [errorSubmit, setErrorSubmit] = useState(false);
 
-  //const [selectedDough, setSelectedDough] = useState([]);
-  //const [selectedSize, setSelectedSize] = useState([]);
+  //fonksiyonlar:
   const handleSubmit = (e) => {
     e.preventDefault();
     orderData.quantity = orderQuantity;
-    orderData.material = selectedMaterial;
-    onSubmit(orderData); // Sipariş verilerini üst bileşene gönder
+    orderData.material = selectedMaterials;
+    onSubmit(orderData); //Sipariş verilerini üst bileşene gönder
   };
 
   const handleSizeChange = (size) => {
-    orderData.size = size;
+    orderData.size = size; //orderData'ya size keyi ekleyip gelen değeri value olarak veriyoruz.
   };
 
   const handleDoughChange = (e) => {
     console.log(e);
-    orderData.dough = e.target.value;
+    orderData.dough = e.target.value; //orderData'ya dough keyi ekleyip gelen değeri value olarak veriyoruz.
   };
 
   const handlePersonChange = (e) => {
-    orderData.person = e.target.value;
+    orderData.person = e.target.value; //orderData'ya person keyi ekleyip gelen değeri value olarak veriyoruz.
     setOrderData(orderData);
+    console.log(orderData, e.target.value);
+    if (orderData.person.length < 3) {
+      setErrorName(true);
+    } else {
+      setErrorName(false);
+    }
   };
 
   const handleNoteChange = (e) => {
-    orderData.note = e.target.value;
+    orderData.note = e.target.value; //orderData'ya note keyi ekleyip gelen değeri value olarak veriyoruz.
+  };
+
+  const handleCheckboxChange = (event) => {
+    const material = event.target.value;
+    const isChecked = event.target.checked;
+
+    // Eğer checkbox seçildiyse ve sınırı aşmıyorsa ekle
+    if (isChecked && selectedMaterials.length < 10) {
+      setSelectedMaterials([...selectedMaterials, material]);
+    }
+    // Checkbox işaret kaldırıldığında çıkar
+    else if (!isChecked) {
+      setSelectedMaterials(
+        selectedMaterials.filter((item) => item !== material)
+      );
+    }
   };
 
   const materials = [
@@ -62,18 +84,6 @@ function OrderPage({ onSubmit }) {
   ];
 
   const sizeList = ["Küçük", "Orta", "Büyük"];
-
-  const handleCheckboxChange = (material) => {
-    setSelectedMaterial((prevSelected) => {
-      if (prevSelected.includes(material)) {
-        // Eğer malzeme daha önce seçildiyse, onu array'den çıkar
-        return prevSelected.filter((item) => item !== material);
-      } else {
-        // Eğer malzeme seçilmediyse, array'e ekle
-        return [...prevSelected, material];
-      }
-    });
-  };
 
   return (
     <section className="orderpage">
@@ -151,11 +161,15 @@ function OrderPage({ onSubmit }) {
                 <Checkbox
                   key={index}
                   material={material}
-                  checked={selectedMaterial.includes(material)}
-                  onChange={() => handleCheckboxChange(material)}
+                  selectedMaterials={selectedMaterials}
+                  onChecked={handleCheckboxChange}
                 ></Checkbox>
               ))}
+              {selectedMaterials.length > 9 && (
+                <p className="text-danger">Sadece 10 malzeme seçebilirsiniz!</p>
+              )}
             </div>
+            {errorMaterial && <p style={{ color: "red" }}>{errorMaterial}</p>}
           </div>
           <br />
           <br />
@@ -171,9 +185,9 @@ function OrderPage({ onSubmit }) {
             type="text"
             className="form-control"
             placeholder="Örnek: Ali Çetin"
-            onKeyDown={handlePersonChange}
+            onChange={handlePersonChange}
           />
-          {orderData.person && orderData.person.length < 3 && (
+          {errorName && (
             <p style={{ color: "red" }}>En az 3 karakter girmelisiniz.</p>
           )}
           <br />
@@ -182,7 +196,7 @@ function OrderPage({ onSubmit }) {
             type="text"
             className="form-control"
             placeholder="Siparişine eklemek istediğin bir not var mı?"
-            onKeyDown={handleNoteChange}
+            onChange={handleNoteChange}
           />
         </div>
         <hr />
