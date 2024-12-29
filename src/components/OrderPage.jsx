@@ -28,6 +28,9 @@ function OrderPage({ onSubmit }) {
     orderData.quantity = orderQuantity;
     orderData.material = selectedMaterials;
     orderData.person = orderPerson;
+    if (!!errorSubmit) {
+      return;
+    }
     onSubmit(orderData); //Sipariş verilerini üst bileşene gönder
   };
   // Submit doğrulaması:
