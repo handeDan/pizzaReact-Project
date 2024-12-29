@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../index.css";
 import OrderRadio from "./OrderRadio";
 import OrderSelection from "./OrderSelection";
@@ -8,41 +8,69 @@ function OrderPage({ onSubmit }) {
   //state'ler:
   const [orderData, setOrderData] = useState({}); //orderData(initial:{})
   const [orderQuantity, setOrderQuantity] = useState(1);
+  const [orderPerson, setOrderPerson] = useState(1);
   const [selectedMaterials, setSelectedMaterials] = useState([]);
   const [errorMaterial, setErrorMaterial] = useState(false);
   const [errorName, setErrorName] = useState(true);
-  const [errorSubmit, setErrorSubmit] = useState(false);
+  const [errorSubmit, setErrorSubmit] = useState(
+    "Lütfen gerekli alanları doldurun."
+  );
+
+  // useEffect, quantity değiştiğinde çalışır
+  useEffect(() => {
+    console.log("Size değişti:", orderQuantity);
+    checkForm();
+  }, [orderQuantity, selectedMaterials, orderData, orderPerson]);
 
   //fonksiyonlar:
   const handleSubmit = (e) => {
     e.preventDefault();
     orderData.quantity = orderQuantity;
     orderData.material = selectedMaterials;
+    orderData.person = orderPerson;
     onSubmit(orderData); //Sipariş verilerini üst bileşene gönder
+  };
+  // Submit doğrulaması:
+  const checkForm = () => {
+    setErrorSubmit("");
+    if (orderQuantity === 0) {
+      setErrorSubmit("Lütfen en az 1 adet seçim yapın.");
+    } else if (!orderData.size) {
+      setErrorSubmit("Lütfen boyut seçiniz.");
+    } else if (!orderData.dough) {
+      setErrorSubmit("Lütfen hamur seçiniz.");
+    } else if (!orderPerson || orderPerson.length < 3) {
+      setErrorSubmit("Lütfen en az 3 karakterli ad soyad giriniz.");
+    }
   };
 
   const handleSizeChange = (size) => {
     orderData.size = size; //orderData'ya size keyi ekleyip gelen değeri value olarak veriyoruz.
+    setOrderData(orderData);
+    checkForm();
   };
 
   const handleDoughChange = (e) => {
     console.log(e);
     orderData.dough = e.target.value; //orderData'ya dough keyi ekleyip gelen değeri value olarak veriyoruz.
+    setOrderData(orderData);
+    checkForm();
   };
 
   const handlePersonChange = (e) => {
-    orderData.person = e.target.value; //orderData'ya person keyi ekleyip gelen değeri value olarak veriyoruz.
-    setOrderData(orderData);
-    console.log(orderData, e.target.value);
-    if (orderData.person.length < 3) {
+    const orderPerson = e.target.value; //orderData'ya person keyi ekleyip gelen değeri value olarak veriyoruz.
+    setOrderPerson(orderPerson);
+    if (orderPerson.length < 3) {
       setErrorName(true);
     } else {
       setErrorName(false);
+      checkForm();
     }
   };
 
   const handleNoteChange = (e) => {
     orderData.note = e.target.value; //orderData'ya note keyi ekleyip gelen değeri value olarak veriyoruz.
+    setOrderData(orderData);
   };
 
   const handleCheckboxChange = (event) => {
@@ -238,9 +266,11 @@ function OrderPage({ onSubmit }) {
               type="submit"
               onClick={handleSubmit}
               className="border-0 bg-warning fw-bold w-100 p-2"
+              disabled={errorSubmit}
             >
               <small>SİPARİŞ VER</small>
             </button>
+            {errorSubmit && <p style={{ color: "red" }}>{errorSubmit}</p>}
           </div>
         </div>
       </section>
