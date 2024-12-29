@@ -4,7 +4,19 @@ import OrderRadio from "./OrderRadio";
 import OrderSelection from "./OrderSelection";
 import Checkbox from "./Checkbox";
 
-function OrderPage() {
+function OrderPage({ onSubmit }) {
+  const [orderName, setOrderName] = useState("");
+  const [orderQuantity, setOrderQuantity] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const orderData = {
+      name: orderName,
+      quantity: orderQuantity,
+    };
+    onSubmit(orderData); // Sipariş verilerini üst bileşene gönder
+  };
+
   const materials = [
     "Pepperoni",
     "Domates",
@@ -72,7 +84,7 @@ function OrderPage() {
   };
 
   return (
-    <div>
+    <section className="orderpage">
       <header>
         <div className="container gap-5">
           <img
@@ -84,7 +96,7 @@ function OrderPage() {
             <span className="text-white">-</span>
             <a href="">Seçenekler</a>
             <span className="text-white">-</span>
-            <a href="" className="fw-bold">
+            <a href="#" className="fw-bold">
               Sipariş Oluştur
             </a>
           </nav>
@@ -114,7 +126,7 @@ function OrderPage() {
           </div>
           <br />
 
-          <div>
+          <form>
             <div className="d-flex justify-content-between align-items-start">
               <div>
                 <h6>
@@ -154,7 +166,7 @@ function OrderPage() {
             <br />
             <br />
             <br />
-          </div>
+          </form>
         </div>
       </main>
       <section className="container">
@@ -200,13 +212,17 @@ function OrderPage() {
                 Toplam <span>110.50₺</span>
               </div>
             </div>
-            <button className="border-0 bg-warning fw-bold w-100 p-2">
+            <button
+              type="submit"
+              onClick={onSubmit}
+              className="border-0 bg-warning fw-bold w-100 p-2"
+            >
               <small>SİPARİŞ VER</small>
             </button>
           </div>
         </div>
       </section>
-    </div>
+    </section>
   );
 }
 
