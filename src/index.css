@@ -16,6 +16,7 @@ header {
   align-items: center;
   margin: 0 auto;
   width: 30%;
+  min-width: 500px;
 }
 .header-h1 {
   margin-bottom: 3rem;

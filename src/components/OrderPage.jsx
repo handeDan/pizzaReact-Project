@@ -8,7 +8,7 @@ function OrderPage({ onSubmit }) {
   //state'ler:
   const [orderData, setOrderData] = useState({}); //orderData(initial:{})
   const [orderQuantity, setOrderQuantity] = useState(1);
-  const [orderPerson, setOrderPerson] = useState(1);
+  const [orderPerson, setOrderPerson] = useState("");
   const [selectedMaterials, setSelectedMaterials] = useState([]);
   const [errorMaterial, setErrorMaterial] = useState(false);
   const [errorName, setErrorName] = useState(true);
@@ -35,6 +35,9 @@ function OrderPage({ onSubmit }) {
   };
   // Submit doğrulaması:
   const checkForm = () => {
+    const isExistPersonName = !!orderPerson;
+    console.log(orderPerson, orderData);
+    console.log(isExistPersonName);
     setErrorSubmit("");
     if (orderQuantity === 0) {
       setErrorSubmit("Lütfen en az 1 adet seçim yapın.");
@@ -42,7 +45,7 @@ function OrderPage({ onSubmit }) {
       setErrorSubmit("Lütfen boyut seçiniz.");
     } else if (!orderData.dough) {
       setErrorSubmit("Lütfen hamur seçiniz.");
-    } else if (!orderPerson || orderPerson.length < 3) {
+    } else if (isExistPersonName === false || orderPerson.length < 3) {
       setErrorSubmit("Lütfen en az 3 karakterli ad soyad giriniz.");
     }
   };
