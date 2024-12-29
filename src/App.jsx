@@ -4,10 +4,11 @@ import OrderPage from "./components/OrderPage";
 import HomePage from "./components/HomePage";
 import Success from "./components/Success";
 import { useState } from "react";
+import axios from "axios";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home"); // Sayfa durumu
-  const [order, setOrder] = useState(null); // Sipariş bilgisi
+  const [orderData, setOrderData] = useState(null); // Sipariş bilgisi
 
   // Sayfa değişim fonksiyonu
   const goToPage = (page) => {
@@ -16,8 +17,16 @@ function App() {
 
   // Sipariş formu verilerini gönder
   const handleOrderSubmit = (orderData) => {
-    setOrder(orderData);
-    setCurrentPage("success"); // Sipariş başarıyla alındı sayfasına geçiş
+    setOrderData(orderData);
+    axios
+      .post("https://reqres.in/api/pizza", orderData)
+      .then((response) => {
+        if (response.data) {
+          console.log(response.data);
+          setCurrentPage("success");
+        } // Sipariş başarıyla alındı sayfasına geçiş
+      })
+      .catch((error) => alert("Bir hata oluştu. Lütfen tekrar sipariş verin."));
   };
 
   return (
@@ -26,7 +35,7 @@ function App() {
         <HomePage goToOrderPage={() => goToPage("order")} />
       )}
       {currentPage === "order" && <OrderPage onSubmit={handleOrderSubmit} />}
-      {currentPage === "success" && <Success order={order} />}
+      {currentPage === "success" && <Success orderData={orderData} />}
     </div>
   );
 }

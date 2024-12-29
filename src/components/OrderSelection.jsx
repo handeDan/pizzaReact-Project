@@ -3,7 +3,7 @@ import React from "react";
 function OrderSelection({ doughList, onChange }) {
   return (
     <div>
-      <select defaultValue="" name="ince" id="ince" onChange={onChange}>
+      <select defaultValue="" name="hamur" id="hamur" onChange={onChange}>
         <option value="" disabled>
           Seçiniz
         </option>

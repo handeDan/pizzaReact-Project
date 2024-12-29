@@ -1,6 +1,6 @@
 import React from "react";
 
-function Success({ order }) {
+function Success({ orderData }) {
   return (
     <section className="success">
       <img
