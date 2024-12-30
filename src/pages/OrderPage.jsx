@@ -32,6 +32,8 @@ function OrderPage({ onSubmit }) {
     orderData.quantity = orderQuantity;
     orderData.material = selectedMaterials;
     orderData.person = orderPerson;
+    orderData.totalPrice = calculateTotalPrice();
+    orderData.totalEkPrice = calculateEkPrice();
     if (!!errorSubmit) {
       return;
     }
@@ -249,7 +251,7 @@ function OrderPage({ onSubmit }) {
             </button>
           </div>
           <div className="border rounded bg-white w-50 d-flex ms-auto align-items-center justify-content-center flex-column ">
-            <div className="w-100 d-flex gap: flex-column gap-2 p-5">
+            <div className="w-100 d-flex flex-column gap-2 p-5">
               <h6>Sipariş Toplamı</h6>
               <div className="d-flex justify-content-between">
                 Seçimler

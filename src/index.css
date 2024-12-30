@@ -60,4 +60,17 @@ select {
   padding-top: 100px;
   gap: 20px;
   text-align: center;
+  font-family: "Roboto Condensed", serif;
+  overflow: auto;
+}
+.order-title {
+  font-family: "Satisfy", serif;
+  color: #fdc913;
+  font-size: 2rem;
+}
+.order-summary-table {
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  justify-content: center;
+  width: 50%;
 }
