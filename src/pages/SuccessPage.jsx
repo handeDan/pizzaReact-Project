@@ -1,6 +1,6 @@
 import React from "react";
 
-function Success({ orderData }) {
+function SuccessPage({ orderData }) {
   return (
     <section className="success">
       <img
@@ -15,4 +15,4 @@ function Success({ orderData }) {
   );
 }
 
-export default Success;
+export default SuccessPage;

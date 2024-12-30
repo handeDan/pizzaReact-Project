@@ -1,5 +1,6 @@
 import React from "react";
-import OrderPage from "../../components/OrderPage";
+import OrderPage from "../../pages/OrderPage";
+import { materials, sizeList, doughList } from "../../assets/data";
 
 describe("inputa bir metin giren test", () => {
   it("inputa metin mi yazılıyor", () => {

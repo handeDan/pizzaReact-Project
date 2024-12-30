@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../index.css";
-import OrderRadio from "./OrderRadio";
-import OrderSelection from "./OrderSelection";
-import Checkbox from "./Checkbox";
+import OrderRadio from "../components/OrderRadio";
+import OrderSelection from "../components/OrderSelection";
+import Checkbox from "../components/Checkbox";
+import { materials, sizeList, doughList } from "../assets/data";
 
 function OrderPage({ onSubmit }) {
   //state'ler:
@@ -15,6 +16,7 @@ function OrderPage({ onSubmit }) {
   const [errorSubmit, setErrorSubmit] = useState(
     "Lütfen gerekli alanları doldurun."
   );
+
   const mainPrice = 85.5;
   const materialPrice = 5.0;
 
@@ -105,30 +107,6 @@ function OrderPage({ onSubmit }) {
     const ekTotalPrice = Number(calculateEkPrice());
     return ((mainPrice + ekTotalPrice) * orderQuantity).toFixed(2);
   };
-
-  const materials = [
-    "Pepperoni",
-    "Domates",
-    "Biber",
-    "Sosis",
-    "Mısır",
-    "Sucuk",
-    "Kanada Jambonu",
-    "Ananas",
-    "Tavuk Izgara",
-    "Jalepeno",
-    "Kabak",
-    "Soğan",
-    "Sarımsak",
-  ];
-  const doughList = [
-    "İncecik Hamur",
-    "İnce Hamur",
-    "Klasik Hamur",
-    "Kalın Hamur",
-  ];
-
-  const sizeList = ["Küçük", "Orta", "Büyük"];
 
   return (
     <section className="orderpage">

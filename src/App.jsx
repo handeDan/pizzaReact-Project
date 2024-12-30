@@ -1,10 +1,9 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import OrderPage from "./components/OrderPage";
-import HomePage from "./components/HomePage";
-import Success from "./components/Success";
+import OrderPage from "./pages/OrderPage";
+import HomePage from "./pages/HomePage";
 import { useState } from "react";
 import axios from "axios";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home"); // Sayfa durumu
@@ -35,7 +34,7 @@ function App() {
         <HomePage goToOrderPage={() => goToPage("order")} />
       )}
       {currentPage === "order" && <OrderPage onSubmit={handleOrderSubmit} />}
-      {currentPage === "success" && <Success orderData={orderData} />}
+      {currentPage === "success" && <SuccessPage orderData={orderData} />}
     </div>
   );
 }
