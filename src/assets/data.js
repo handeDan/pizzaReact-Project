@@ -35,10 +35,10 @@ export const navBarTitle = [
   "Gazlı İçecek",
 ];
 
-//Card.jsx için:
-export const cardImagesPath = `./../../../images/iteration-2-images/pictures/`;
+//ProductList.jsx için:
+export const productsImagesPath = `./../../../images/iteration-2-images/pictures/`;
 
-export const cards = [
+export const products = [
   {
     title: "Terminal Pizza",
     score: "4.9",
@@ -59,5 +59,26 @@ export const cards = [
     comments: "(462)",
     price: "75.00 ₺",
     image: "food-3.png",
+  },
+];
+
+//ProductList.jsx için:
+export const cardsImagesPath = `./../../../images/iteration-2-images/cta/`;
+
+export const cards = [
+  {
+    title: "Özel Lezzetus",
+    text: "Position: Absolute Acı Burger",
+    image: "kart-1.png",
+  },
+  {
+    title: "Hackathlon Burger Menü",
+    text: "",
+    image: "kart-2.png",
+  },
+  {
+    title: "Çoooook hızlı npm gibi kurye",
+    text: "",
+    image: "kart-3.png",
   },
 ];

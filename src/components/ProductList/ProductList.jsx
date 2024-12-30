@@ -1,24 +1,24 @@
 import React from "react";
-import { cards, cardImagesPath } from "../../assets/data";
+import { products, productsImagesPath } from "../../assets/data";
 
 function ProductList() {
   return (
     <div>
       <div className="row container-home">
-        {cards.map((card, index) => (
+        {products.map((product, index) => (
           <div className="col-md-4" key={index}>
             <div className="card">
               <img
                 className="card-img-top"
-                src={cardImagesPath + card.image}
-                alt={card.title}
+                src={productsImagesPath + product.image}
+                alt={product.title}
               />
               <div className="card-body">
-                <h5 className="card-title">{card.title}</h5>
+                <h5 className="card-title">{product.title}</h5>
                 <div className="d-flex justify-content-between">
-                  <p className="card-text">{card.score}</p>
-                  <p className="card-text">{card.comments}</p>
-                  <p className="card-text fw-bold">{card.price}</p>
+                  <p className="card-text">{product.score}</p>
+                  <p className="card-text">{product.comments}</p>
+                  <p className="card-text fw-bold">{product.price}</p>
                 </div>
               </div>
             </div>

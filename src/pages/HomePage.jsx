@@ -1,6 +1,6 @@
 import React from "react";
-import Cards from "../components/ProductList/ProductList.jsx";
-import ProductList from "../components/Cards/Cards.jsx";
+import ProductList from "../components/ProductList/ProductList.jsx";
+import Cards from "../components/Cards/Cards.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 import NavBar from "../components/NavBar/NavBar.jsx";
 import Options from "../components/Options/Options.jsx";
@@ -31,9 +31,9 @@ function HomePage({ goToOrderPage }) {
         <p></p>
         <p></p>
       </div>
-      <Options></Options>
-      <ProductList></ProductList>
-      <Footer></Footer>
+      <Options />
+      <ProductList />
+      <Footer />
     </section>
   );
 }
