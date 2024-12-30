@@ -1,0 +1,37 @@
+.container-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin: 25px auto;
+  width: 60%;
+  padding-top: 50px;
+  justify-content: space-between;
+}
+.footer-bg {
+  background-color: #292929;
+  height: auto;
+}
+.footer {
+  color: white;
+  display: flex;
+  font-size: 1rem;
+  font-family: "Roboto Condensed", serif;
+}
+.footer-insta-images {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+}
+.footer-insta-images-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 30%;
+  margin-left: 5rem;
+}
+.container-footer .footer-icons img {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+}

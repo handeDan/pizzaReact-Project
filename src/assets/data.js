@@ -95,3 +95,36 @@ export const optionsTitle = [
   "Fast Food",
   "Soft Drinks",
 ];
+
+//Footer için:
+export const footerPath = `./../../../images/iteration-2-images/footer/`;
+
+export const iconsFooter = [
+  {
+    text: "34 Londonderry Road, Istanbul Türkiye",
+    image: "icons/icon-1.png",
+  },
+  { text: "aciktim@teknolojikyemekler.com", image: "icons/icon-2.png" },
+  { text: "+90 216 123 45 67", image: "icons/icon-3.png" },
+];
+
+export const instaFooter = [
+  {
+    image: "insta/li-0.png",
+  },
+  {
+    image: "insta/li-1.png",
+  },
+  {
+    image: "insta/li-2.png",
+  },
+  {
+    image: "insta/li-3.png",
+  },
+  {
+    image: "insta/li-4.png",
+  },
+  {
+    image: "insta/li-5.png",
+  },
+];
