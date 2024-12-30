@@ -18,6 +18,14 @@ header {
   width: 30%;
   min-width: 500px;
 }
+.container-home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 25px auto;
+  width: 75%;
+}
 .header-h1 {
   margin-bottom: 3rem;
   color: #faf7f2;
@@ -34,9 +42,10 @@ nav a {
 select {
   border: 0;
 }
-.homepage {
+.homepage-main {
   background-image: url("../images/iteration-1-images/home-banner.png");
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
   display: flex;
   flex-direction: column;
