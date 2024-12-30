@@ -15,7 +15,6 @@ function OrderPage({ onSubmit }) {
   const [errorSubmit, setErrorSubmit] = useState(
     "Lütfen gerekli alanları doldurun."
   );
-  const [ekPrice, setEkPrice] = useState(0);
   const mainPrice = 85.5;
   const materialPrice = 5.0;
 
@@ -229,6 +228,7 @@ function OrderPage({ onSubmit }) {
           </h6>
           <input
             type="text"
+            name="name"
             className="form-control"
             placeholder="Örnek: Ali Çetin"
             onChange={handlePersonChange}
