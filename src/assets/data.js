@@ -82,3 +82,16 @@ export const cards = [
     image: "kart-3.png",
   },
 ];
+
+//OptionsNavBar için:
+export const options = [1, 2, 3, 4, 5, 6];
+export const optionsPath = `./../../../images/iteration-2-images/icons/`;
+
+export const optionsTitle = [
+  "Ramen",
+  "Pizza",
+  "Burger",
+  "French Fries",
+  "Fast Food",
+  "Soft Drinks",
+];

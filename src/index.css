@@ -24,7 +24,7 @@ header {
   align-items: center;
   justify-content: space-around;
   margin: 25px auto;
-  width: 75%;
+  width: 60%;
 }
 .header-h1 {
   margin-bottom: 3rem;
@@ -105,4 +105,9 @@ select {
   flex-direction: row;
   gap: 1rem;
   justify-content: center;
+}
+.nav-title {
+  font-family: "Satisfy", serif;
+  color: #ce2829;
+  font-size: 2rem;
 }
