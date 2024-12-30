@@ -15,6 +15,9 @@ function OrderPage({ onSubmit }) {
   const [errorSubmit, setErrorSubmit] = useState(
     "Lütfen gerekli alanları doldurun."
   );
+  const [ekPrice, setEkPrice] = useState(0);
+  const mainPrice = 85.5;
+  const materialPrice = 5.0;
 
   // useEffect, quantity değiştiğinde çalışır
   useEffect(() => {
@@ -93,6 +96,15 @@ function OrderPage({ onSubmit }) {
         selectedMaterials.filter((item) => item !== material)
       );
     }
+  };
+
+  const calculateEkPrice = () => {
+    return (materialPrice * selectedMaterials.length).toFixed(2);
+  };
+
+  const calculateTotalPrice = () => {
+    const ekTotalPrice = Number(calculateEkPrice());
+    return ((mainPrice + ekTotalPrice) * orderQuantity).toFixed(2);
   };
 
   const materials = [
@@ -262,10 +274,11 @@ function OrderPage({ onSubmit }) {
             <div className="w-100 d-flex gap: flex-column gap-2 p-5">
               <h6>Sipariş Toplamı</h6>
               <div className="d-flex justify-content-between">
-                Seçimler<span>25.00₺</span>
+                Seçimler
+                <span>{calculateEkPrice()} ₺</span>
               </div>
               <div className="d-flex justify-content-between text-danger fw-bold">
-                Toplam <span>110.50₺</span>
+                Toplam <span>{calculateTotalPrice()}₺</span>
               </div>
             </div>
             <button
