@@ -186,7 +186,7 @@ select {
   .homepage-main {
     background-position: center;
   }
-  main p {
+  .main p {
     font-size: 50px;
     padding-top: 10px;
   }
@@ -223,5 +223,27 @@ select {
   }
   .home-options p {
     display: none;
+  }
+  header img {
+    width: 250px;
+  }
+  .container {
+    width: 100%;
+    min-width: 100%;
+  }
+  .container-main img {
+    width: 100%;
+  }
+  header {
+    height: 4.5rem;
+  }
+  .success {
+    padding-top: 30px;
+  }
+  .text-start {
+    text-align: unset;
+  }
+  .success .mb-5 {
+    margin-bottom: unset;
   }
 }
