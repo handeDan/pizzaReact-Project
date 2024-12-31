@@ -148,3 +148,35 @@ select {
 .textarea {
   background-color: #faf7f2;
 }
+/* CHECKBOX KISMI:*/
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+.checkbox-container input {
+  display: none; /* Varsayılan checkbox'u gizle */
+}
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  margin-right: 8px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.checkbox-container input:checked + .custom-checkbox {
+  background-color: #ffc107; /* Sarı renk */
+  border-color: #ffc107;
+}
+.checkbox-container input:checked + .custom-checkbox::before {
+  content: "✓";
+  color: #292929; /*tıklanınca gelen tik*/
+  font-size: 16px;
+}

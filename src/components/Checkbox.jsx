@@ -2,8 +2,8 @@ import React from "react";
 
 function Checkbox({ material, onChecked, selectedMaterials }) {
   return (
-    <div className="col-md-4 col-sm-6">
-      <label className="form-check mb-3">
+    <div className="col-4 mb-3">
+      <label className="checkbox-container">
         <input
           type="checkbox"
           onChange={onChecked}
@@ -13,8 +13,9 @@ function Checkbox({ material, onChecked, selectedMaterials }) {
             !selectedMaterials.includes(material) &&
             selectedMaterials.length >= 10
           }
-        />
-        {material} <span className="text-danger"> - 5₺</span>
+        />{" "}
+        <span className="custom-checkbox"></span>
+        {material} <span className="text-danger "> - 5₺</span>
       </label>
     </div>
   );
