@@ -9,7 +9,7 @@ function SuccessPage({ orderData }) {
           alt="Teknolojik Yemekler"
           src="./images/iteration-1-images/logo.svg"
         />
-        <section className="display-1 text-white mt-5">
+        <section className="display-1 text-white mt-3">
           <h4>Merhaba {person},</h4>
           <p className="order-title">lezzetin yolda</p>
           <p>SİPARİŞ ALINDI</p>
