@@ -118,89 +118,95 @@ function OrderPage({ onSubmit }) {
             alt="Teknolojik Yemekler"
             src="./images/iteration-1-images/logo.svg"
           />
+        </div>
+      </header>
+      <main className="container-main">
+        <div className="container">
+          <img
+            alt="Teknolojik Yemekler"
+            src="./images/iteration-2-images/pictures/form-banner.png"
+          />
+          <br />
           <nav>
             <a href="">Ana Sayfa</a>
-            <span className="text-white">-</span>
+            <span>-</span>
             <a href="">Seçenekler</a>
-            <span className="text-white">-</span>
-            <a href="#" className="fw-bold">
+            <span>-</span>
+            <a href="#" className="fw-bold text-danger">
               Sipariş Oluştur
             </a>
           </nav>
-        </div>
-      </header>
-      <main className="container">
-        <br />
-        <h4 className="w-100">Position Absoulute Acı Pizza</h4>
-        <br />
-        <div>
-          <div className="d-flex justify-content-between align-items-center">
-            <p className="fw-bold fs-3">85.50₺ </p>
-            <div className="d-flex gap-5">
-              4.9<span>(200)</span>
-            </div>
-          </div>
-          <p>
-            Frontend Dev olarak hala position:absolute kullanıyorsan bu çok acı
-            pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli
-            diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun
-            ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
-            yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan
-            kökenli lezzetli bir yemektir.. Küçük bir pizzaya bazen pizzetta
-            denir.
-          </p>
-        </div>
-        <br />
-
-        <form>
-          <div className="d-flex justify-content-between align-items-start">
-            <div>
-              <h6>
-                Boyut Seç <span className="text-danger"> *</span>
-              </h6>
-              <div className="d-flex justify-content-start ">
-                <OrderRadio
-                  sizeList={sizeList}
-                  handleSizeChange={handleSizeChange}
-                />
-              </div>
-            </div>
-            <div className="d-block">
-              <h6>
-                Hamur Seç<span className="text-danger"> *</span>
-              </h6>
-              <div className="mt-3 form-control">
-                <OrderSelection
-                  doughList={doughList}
-                  onChange={handleDoughChange}
-                />
-              </div>
-            </div>
-          </div>
+          <br /> <br />
+          <h4 className="w-100">Position Absoulute Acı Pizza</h4>
           <br />
           <div>
-            <h6>Ek Malzemeler</h6>
-            <p>En fazla 10 malzeme seçebilirsiniz.</p>
-            <div className="row">
-              {materials.map((material, index) => (
-                <Checkbox
-                  key={index}
-                  material={material}
-                  selectedMaterials={selectedMaterials}
-                  onChecked={handleCheckboxChange}
-                ></Checkbox>
-              ))}
-              {selectedMaterials.length > 9 && (
-                <p className="text-danger">Sadece 10 malzeme seçebilirsiniz!</p>
-              )}
+            <div className="d-flex justify-content-between align-items-center">
+              <p className="fw-bold fs-3">85.50₺ </p>
+              <div className="d-flex gap-5">
+                4.9<span>(200)</span>
+              </div>
             </div>
-            {errorMaterial && <p style={{ color: "red" }}>{errorMaterial}</p>}
+            <p>
+              Frontend Dev olarak hala position:absolute kullanıyorsan bu çok
+              acı pizza tam sana göre. Pizza, domates, peynir ve genellikle
+              çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak
+              odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle
+              yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan
+              İtalyan kökenli lezzetli bir yemektir.. Küçük bir pizzaya bazen
+              pizzetta denir.
+            </p>
           </div>
-          <br />
-          <br />
-          <br />
-        </form>
+        </div>
       </main>
+      <br />
+      <form className="container">
+        <div className="w-100">
+          <div className="w-50 d-inline-block">
+            <h6>
+              Boyut Seç <span className="text-danger"> *</span>
+            </h6>
+            <div>
+              <OrderRadio
+                sizeList={sizeList}
+                handleSizeChange={handleSizeChange}
+              />
+            </div>
+          </div>
+          <div className="w-50 d-inline-block">
+            <h6>
+              Hamur Seç<span className="text-danger"> *</span>
+            </h6>
+            <div className="form-select">
+              <OrderSelection
+                doughList={doughList}
+                onChange={handleDoughChange}
+              />
+            </div>
+          </div>
+        </div>
+        <br />
+        <div>
+          <h6>Ek Malzemeler</h6>
+          <p>En fazla 10 malzeme seçebilirsiniz.</p>
+          <div className="row">
+            {materials.map((material, index) => (
+              <Checkbox
+                key={index}
+                material={material}
+                selectedMaterials={selectedMaterials}
+                onChecked={handleCheckboxChange}
+              ></Checkbox>
+            ))}
+            {selectedMaterials.length > 9 && (
+              <p className="text-danger">Sadece 10 malzeme seçebilirsiniz!</p>
+            )}
+          </div>
+          {errorMaterial && <p style={{ color: "red" }}>{errorMaterial}</p>}
+        </div>
+        <br />
+        <br />
+        <br />
+      </form>
       <section className="container">
         <div className="d-flex flex-column w-100">
           <h6>

@@ -5,7 +5,7 @@ function OrderSelection({ doughList, onChange }) {
     <div>
       <select defaultValue="" name="hamur" id="hamur" onChange={onChange}>
         <option value="" disabled>
-          Seçiniz
+          -Hamur Kalınlığı Seç-
         </option>
         {doughList.map((item, index) => (
           <option value={item} key={index}>

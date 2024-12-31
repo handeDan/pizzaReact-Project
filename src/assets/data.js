@@ -20,7 +20,7 @@ export const doughList = [
   "Kalın Hamur",
 ];
 
-export const sizeList = ["Küçük", "Orta", "Büyük"];
+export const sizeList = ["S", "M", "L"];
 
 //NavBar.jsx için:
 export const icons = [1, 2, 3, 4, 5, 6];

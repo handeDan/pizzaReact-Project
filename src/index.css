@@ -1,15 +1,22 @@
 .orderpage {
-  background-color: #faf7f2;
   padding-bottom: 120px;
   font-family: "Roboto Condensed", serif;
 }
 header {
   background-color: #ce2829;
-  font-family: "Barlow", serif;
-  height: 12.5rem;
-  padding-top: 3rem;
+  height: 5.5rem;
+  padding-top: 1.5rem;
 }
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 30%;
+  min-width: 500px;
+}
+.container-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,6 +33,9 @@ header {
   margin: 25px auto;
   width: 60%;
 }
+.container-main {
+  background-color: #faf7f2;
+}
 .header-h1 {
   margin-bottom: 3rem;
   color: #faf7f2;
@@ -37,7 +47,8 @@ nav {
 }
 nav a {
   text-decoration: none;
-  color: #faf7f2;
+  color: black;
+  font-family: "Barlow", serif;
 }
 select {
   border: 0;
@@ -110,4 +121,27 @@ select {
   font-family: "Satisfy", serif;
   color: #ce2829;
   font-size: 2rem;
+}
+.options-button {
+  background-color: #faf7f2;
+  border: none;
+  border-radius: 25px;
+  width: 40px;
+  height: 40px;
+}
+.active {
+  background-color: #292929;
+  color: white;
+}
+.form-select {
+  background-color: #faf7f2;
+  border: none;
+  border-radius: 15px;
+}
+.form-select select {
+  background-color: unset;
+  -webkit-appearance: none; /* Safari ve Chrome için */
+  -moz-appearance: none; /* Firefox için */
+  appearance: none; /* Diğer tarayıcılar için */
+  background: none;
 }
