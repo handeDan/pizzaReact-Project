@@ -25,7 +25,7 @@ function Footer() {
         <div>
           <h4>Sıcacık Menüler</h4>
           <div className="d-flex flex-column mt-4">
-            <h6>Terminal Pizza</h6>
+            <p>Terminal Pizza</p>
             <p>5 Kişilik Hackathlon Pizza</p>
             <p>useEffect Tavuklu Pizza</p>
             <p>Beyaz Console Frosty</p>

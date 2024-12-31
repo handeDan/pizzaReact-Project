@@ -6,7 +6,7 @@ function Options() {
     <section className="container-home d-flex flex-column">
       <p className="nav-title">en çok paketlenen menüler</p>
       <h1 className="display-4 fw-bold">Acıktıran Kodlara Doyuran Lezzetler</h1>
-      <div className="d-flex flex-row justify-content-around w-100 mt-3">
+      <div className="d-flex flex-row justify-content-around w-100 mt-3 home-options">
         {options.map((option, index) => {
           return (
             <button

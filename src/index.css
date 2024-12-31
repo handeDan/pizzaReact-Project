@@ -180,3 +180,48 @@ select {
   color: #292929; /*tıklanınca gelen tik*/
   font-size: 16px;
 }
+
+/*MEDIA QUERY*/
+@media (max-width: 768px) {
+  .homepage-main {
+    background-position: center;
+  }
+  main p {
+    font-size: 50px;
+    padding-top: 10px;
+  }
+  .container-home {
+    margin: 5px 5px;
+    width: unset;
+  }
+  .home-navbar img {
+    width: 30px;
+  }
+  .home-navbar p {
+    display: none;
+  }
+  .cardGroup h2 {
+    font-size: 20px;
+  }
+  .card-1 {
+    height: 300px;
+    background-size: 180%;
+  }
+  .card-2 {
+    height: 140px;
+    background-size: 150%;
+    padding: 0.5rem;
+  }
+  .cardGroup {
+    gap: 3px;
+  }
+  .container-home h1 {
+    font-size: 20px;
+  }
+  .home-options img {
+    width: 30px;
+  }
+  .home-options p {
+    display: none;
+  }
+}

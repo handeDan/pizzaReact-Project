@@ -14,7 +14,7 @@ function NavBar() {
   // ];
 
   return (
-    <section className="container-home">
+    <section className="container-home home-navbar">
       {icons.map((icon, index) => {
         return (
           <div
