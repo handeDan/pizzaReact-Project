@@ -1,5 +1,5 @@
 .orderpage {
-  padding-bottom: 120px;
+  padding-bottom: 50px;
   font-family: "Roboto Condensed", serif;
 }
 header {
@@ -61,7 +61,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 50px;
   gap: 20px;
   text-align: center;
   font-family: "Roboto Condensed", serif;
@@ -77,11 +77,17 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 30px;
   gap: 20px;
   text-align: center;
   font-family: "Roboto Condensed", serif;
   overflow: auto;
+}
+.success .container .display-1 p:last-child {
+  font-size: 3rem;
+}
+.success p {
+  margin-bottom: 0.8rem;
 }
 .order-title {
   font-family: "Satisfy", serif;

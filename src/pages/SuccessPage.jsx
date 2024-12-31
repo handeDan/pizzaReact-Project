@@ -15,9 +15,9 @@ function SuccessPage({ orderData }) {
           <p>SİPARİŞ ALINDI</p>
         </section>
         <div className="border-top border-1 border-white w-100 text-align-left" />
-        <section className="d-flex flex-column align-items-center text-white mt-4">
+        <section className="d-flex flex-column align-items-center text-white mt-3">
           <h3 className="text-white w-100">Position Absolute Acı Pizza</h3>
-          <div className="d-flex flex-column text-start flex-wrap w-50 mt-5 mb-5">
+          <div className="d-flex flex-column text-start flex-wrap w-50 mt-1 mb-1">
             <p>
               Adet:&nbsp;<strong>{quantity}</strong>
             </p>
@@ -34,7 +34,7 @@ function SuccessPage({ orderData }) {
           </div>
         </section>
         <section className="order-summary-table">
-          <div className="d-flex flex-column gap-3 p-5 text-white ">
+          <div className="d-flex flex-column gap-3 p-3 text-white ">
             <h5 className="d-flex text-align-left">Sipariş Toplamı</h5>
             <div className="d-flex justify-content-between text-white">
               <h5>Seçimler</h5>
