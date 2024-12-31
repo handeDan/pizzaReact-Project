@@ -145,3 +145,6 @@ select {
   appearance: none; /* Diğer tarayıcılar için */
   background: none;
 }
+.textarea {
+  background-color: #faf7f2;
+}

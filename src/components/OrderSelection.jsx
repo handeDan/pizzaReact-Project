@@ -3,7 +3,13 @@ import React from "react";
 function OrderSelection({ doughList, onChange }) {
   return (
     <div>
-      <select defaultValue="" name="hamur" id="hamur" onChange={onChange}>
+      <select
+        defaultValue=""
+        name="hamur"
+        id="hamur"
+        onChange={onChange}
+        className="form-select"
+      >
         <option value="" disabled>
           -Hamur Kalınlığı Seç-
         </option>

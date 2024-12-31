@@ -176,7 +176,7 @@ function OrderPage({ onSubmit }) {
             <h6>
               Hamur Seç<span className="text-danger"> *</span>
             </h6>
-            <div className="form-select">
+            <div>
               <OrderSelection
                 doughList={doughList}
                 onChange={handleDoughChange}
@@ -210,12 +210,12 @@ function OrderPage({ onSubmit }) {
       <section className="container">
         <div className="d-flex flex-column w-100">
           <h6>
-            Ad Soyad<span className="text-danger"> *</span>
+            Ad Soyad<span className="text-danger "> *</span>
           </h6>
           <input
             type="text"
             name="name"
-            className="form-control"
+            className="form-control textarea"
             placeholder="Örnek: Ali Çetin"
             onChange={handlePersonChange}
           />
@@ -226,7 +226,7 @@ function OrderPage({ onSubmit }) {
           <h6>Sipariş Notu</h6>
           <textarea
             type="text"
-            className="form-control"
+            className="form-control textarea"
             placeholder="Siparişine eklemek istediğin bir not var mı?"
             onChange={handleNoteChange}
           />
@@ -245,7 +245,7 @@ function OrderPage({ onSubmit }) {
             >
               -
             </button>
-            <button type="button" className="btn border bg-white">
+            <button type="button" className="btn border textarea">
               {orderQuantity}
             </button>
             <button
@@ -257,7 +257,7 @@ function OrderPage({ onSubmit }) {
             </button>
           </div>
           <div className="border rounded bg-white w-50 d-flex ms-auto align-items-center justify-content-center flex-column ">
-            <div className="w-100 d-flex flex-column gap-2 p-5">
+            <div className="w-100 d-flex flex-column p-4 textarea">
               <h6>Sipariş Toplamı</h6>
               <div className="d-flex justify-content-between">
                 Seçimler
@@ -265,17 +265,22 @@ function OrderPage({ onSubmit }) {
               </div>
               <div className="d-flex justify-content-between text-danger fw-bold">
                 Toplam <span>{calculateTotalPrice()}₺</span>
-              </div>
+              </div>{" "}
+              <br />
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="border-0 bg-warning fw-bold p-2"
+                disabled={errorSubmit}
+              >
+                <small>SİPARİŞ VER</small>
+              </button>
+              {errorSubmit && (
+                <p style={{ color: "red", paddingTop: "10px", margin: "0" }}>
+                  {errorSubmit}
+                </p>
+              )}
             </div>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="border-0 bg-warning fw-bold w-100 p-2"
-              disabled={errorSubmit}
-            >
-              <small>SİPARİŞ VER</small>
-            </button>
-            {errorSubmit && <p style={{ color: "red" }}>{errorSubmit}</p>}
           </div>
         </div>
       </section>
