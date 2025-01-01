@@ -37,11 +37,11 @@ function Footer() {
           <div className="footer-insta-images-wrapper">
             <h4>Instagram</h4>
             <br />
-            <div className="footer-insta-images">
+            <figure className="footer-insta-images">
               {instaFooter.map((ins, index) => (
                 <img key={index} src={footerPath + ins.image} alt="" />
               ))}
-            </div>
+            </figure>
           </div>
         </div>
       </section>

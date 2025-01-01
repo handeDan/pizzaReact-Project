@@ -3,7 +3,7 @@ import { cards, cardsImagesPath } from "../../assets/data";
 
 function Cards() {
   return (
-    <div className="cardGroup container-home">
+    <figure className="cardGroup container-home">
       <div
         className="card-1 bg w-50"
         style={{
@@ -50,7 +50,7 @@ function Cards() {
           </button>
         </div>
       </div>
-    </div>
+    </figure>
   );
 }
 

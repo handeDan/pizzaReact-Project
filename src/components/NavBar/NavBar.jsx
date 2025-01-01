@@ -17,13 +17,13 @@ function NavBar() {
     <section className="container-home home-navbar">
       {icons.map((icon, index) => {
         return (
-          <div
-            className="d-flex flex-row align-items-center justify-content-center gap-3"
+          <button
+            className="d-flex flex-row align-items-center justify-content-center gap-3 btn btn-light rounded-pill "
             key={index}
           >
             <img src={iconPath + icon + ".svg"} alt={icon} />
             <p>{navBarTitle[index]}</p>
-          </div>
+          </button>
         );
       })}
     </section>
