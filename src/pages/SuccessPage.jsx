@@ -1,7 +1,7 @@
 import React from "react";
 
 function SuccessPage({ orderData }) {
-  const { person, size, dough, quantity, material } = orderData;
+  const { person, size, dough, quantity, material, note, sauce } = orderData;
   return (
     <section className="success">
       <div className="container">
@@ -30,6 +30,12 @@ function SuccessPage({ orderData }) {
             </p>
             <p>
               Ek Malzemeler:&nbsp;<strong>{material.join(", ")}</strong>
+            </p>
+            <p>
+              Soslar:&nbsp;<strong>{sauce.join(", ")}</strong>
+            </p>
+            <p>
+              Notunuz:&nbsp;<strong>{note}</strong>
             </p>
           </div>
         </section>

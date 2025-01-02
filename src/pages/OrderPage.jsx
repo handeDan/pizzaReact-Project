@@ -40,7 +40,7 @@ function OrderPage({ onSubmit }) {
     e.preventDefault();
     orderData.quantity = orderQuantity;
     orderData.material = selectedMaterials;
-    orderData.souce = selectedSauces;
+    orderData.sauce = selectedSauces;
     orderData.person = orderPerson;
     orderData.totalPrice = calculateTotalPrice();
     orderData.totalEkPrice = calculateEkPrice();
