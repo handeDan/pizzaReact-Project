@@ -1,3 +1,4 @@
+//Checkbox.jsx için:
 export const materials = [
   "Pepperoni",
   "Domates",
@@ -21,6 +22,15 @@ export const doughList = [
 ];
 
 export const sizeList = ["S", "M", "L"];
+
+//CheckboxSauce.jsx için:
+export const sauceList = [
+  "Ketçap",
+  "Mayonez",
+  "Sarımsaklı Mayonez",
+  "Hardal",
+  "Ranch",
+];
 
 //NavBar.jsx için:
 export const icons = [1, 2, 3, 4, 5, 6];

@@ -3,8 +3,9 @@ import "../index.css";
 import OrderRadio from "../components/OrderRadio";
 import OrderSelection from "../components/OrderSelection";
 import Checkbox from "../components/Checkbox";
-import { materials, sizeList, doughList } from "../assets/data";
+import { materials, sizeList, doughList, sauceList } from "../assets/data";
 import Footer from "../components/Footer/Footer";
+import CheckboxSauce from "../components/CheckboxSauce";
 
 function OrderPage({ onSubmit }) {
   //state'ler:
@@ -12,6 +13,7 @@ function OrderPage({ onSubmit }) {
   const [orderQuantity, setOrderQuantity] = useState(1);
   const [orderPerson, setOrderPerson] = useState("");
   const [selectedMaterials, setSelectedMaterials] = useState([]);
+  const [selectedSauces, setSelectedSauces] = useState([]);
   const [errorMaterial, setErrorMaterial] = useState(false);
   const [errorName, setErrorName] = useState(true);
   const [errorSubmit, setErrorSubmit] = useState(
@@ -25,13 +27,20 @@ function OrderPage({ onSubmit }) {
   useEffect(() => {
     console.log("Size değişti:", orderQuantity);
     checkForm();
-  }, [orderQuantity, selectedMaterials, orderData, orderPerson]);
+  }, [
+    orderQuantity,
+    selectedMaterials,
+    selectedSauces,
+    orderData,
+    orderPerson,
+  ]);
 
   //fonksiyonlar:
   const handleSubmit = (e) => {
     e.preventDefault();
     orderData.quantity = orderQuantity;
     orderData.material = selectedMaterials;
+    orderData.souce = selectedSauces;
     orderData.person = orderPerson;
     orderData.totalPrice = calculateTotalPrice();
     orderData.totalEkPrice = calculateEkPrice();
@@ -99,6 +108,20 @@ function OrderPage({ onSubmit }) {
       setSelectedMaterials(
         selectedMaterials.filter((item) => item !== material)
       );
+    }
+  };
+  //Sos seçim fonksiyonu:
+  const handleCheckboxSauceChange = (event) => {
+    const sauce = event.target.value;
+    const isChecked = event.target.checked;
+
+    // Eğer checkbox seçildiyse ve sınırı aşmıyorsa ekle
+    if (isChecked && selectedSauces.length < 2) {
+      setSelectedSauces([...selectedSauces, sauce]);
+    }
+    // Checkbox işaret kaldırıldığında çıkar
+    else if (!isChecked) {
+      setSelectedSauces(selectedSauces.filter((item) => item !== sauce));
     }
   };
 
@@ -205,8 +228,23 @@ function OrderPage({ onSubmit }) {
             </div>
             {errorMaterial && <p style={{ color: "red" }}>{errorMaterial}</p>}
           </div>
-          <br />
-          <br />
+          <div className="w-100">
+            <h6>Soslar</h6>
+            <p>En fazla 2 sos seçebilirsiniz.</p>
+            <div className="row">
+              {sauceList.map((sauce, index) => (
+                <CheckboxSauce
+                  key={index}
+                  sauce={sauce}
+                  selectedSauces={selectedSauces}
+                  onChecked={handleCheckboxSauceChange}
+                ></CheckboxSauce>
+              ))}
+              {selectedSauces.length > 1 && (
+                <p className="text-danger">En fazla 2 sos seçebilirsiniz!</p>
+              )}
+            </div>
+          </div>
           <br />
         </form>
         <section className="container">

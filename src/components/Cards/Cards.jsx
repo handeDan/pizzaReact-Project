@@ -12,7 +12,7 @@ function Cards() {
             )`,
         }}
       >
-        <h1 className="display-2">Özel Lezzetus</h1>
+        <h1 className="display-4">Özel Lezzetus</h1>
         <p>Position:Absolute Acı Burger</p>
         <button className="btn btn-light rounded-pill text-danger fw-bold mt-2">
           SİPARİŞ VER
