@@ -187,6 +187,49 @@ select {
   color: #292929; /*tıklanınca gelen tik*/
   font-size: 16px;
 }
+/* DROPDOWN KISMI:*/
+.navbar-item {
+  position: relative;
+  list-style: none;
+}
+
+.navbar-item a {
+  color: black;
+  text-decoration: none;
+}
+
+/* Dropdown menü */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.dropdown-menu li a {
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.dropdown-menu li:hover {
+  background-color: #ffc107;
+  padding: 10px;
+}
 
 /*MEDIA QUERY*/
 @media (max-width: 768px) {

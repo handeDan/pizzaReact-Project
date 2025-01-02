@@ -6,6 +6,7 @@ import Checkbox from "../components/Checkbox";
 import { materials, sizeList, doughList, sauceList } from "../assets/data";
 import Footer from "../components/Footer/Footer";
 import CheckboxSauce from "../components/CheckboxSauce";
+import Dropdown from "../components/Dropdown";
 
 function OrderPage({ onSubmit }) {
   //state'ler:
@@ -155,7 +156,7 @@ function OrderPage({ onSubmit }) {
             <nav>
               <a href="">Ana Sayfa</a>
               <span>-</span>
-              <a href="">Seçenekler</a>
+              <Dropdown />
               <span>-</span>
               <a href="#" className="fw-bold text-danger">
                 Sipariş Oluştur
