@@ -11,7 +11,7 @@ function HomePage({ goToOrderPage }) {
       <main className="homepage-main">
         <img
           alt="Teknolojik Yemekler"
-          src="./images/iteration-1-images/logo.svg"
+          src="/images/iteration-1-images/logo.svg"
         />
         <div className="display-1 text-white">
           <p className="order-title">fırsatı kaçırma</p>
