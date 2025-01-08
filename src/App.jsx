@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import { useState } from "react";
 import axios from "axios";
 import SuccessPage from "./pages/SuccessPage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home"); // Sayfa durumu
@@ -23,6 +25,7 @@ function App() {
         if (response.data) {
           console.log(response.data);
           setCurrentPage("success");
+          toast.success("Siparişiniz başarıyla alındı!");
         } // Sipariş başarıyla alındı sayfasına geçiş
       })
       .catch((error) => alert("Bir hata oluştu. Lütfen tekrar sipariş verin."));
@@ -35,6 +38,7 @@ function App() {
       )}
       {currentPage === "order" && <OrderPage onSubmit={handleOrderSubmit} />}
       {currentPage === "success" && <SuccessPage orderData={orderData} />}
+      <ToastContainer />
     </div>
   );
 }
